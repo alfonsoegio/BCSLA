@@ -25,12 +25,9 @@ contract BCSLA {
   event BCSLAStartsEvent(address customer, address operator);
   event EndOfRoundEvent(uint customerDeposit, uint operatorDeposit);
   event BCSLAInfringement(address customer, address operator, uint customerMetrics);
-  /* event operatorJustPosted(address operator, bool operatorPosted, uint operatorDeposit); */
-  /* event customerJustPosted(address customer, bool customerPosted, uint customerDeposit); */
-  /* event bothPosted(bool operatorPosted, bool customerPosted); */
 
   constructor() public {
-    /* Operator builds up the contract */
+    /* Operator instantiates the contract */
     operator = msg.sender;
   }
 
@@ -42,23 +39,18 @@ contract BCSLA {
   }
 
   function postMetrics(uint x) public payable {
-
     require((msg.sender == operator || msg.sender == customer));
     if(msg.sender == operator) {
-      /* require(operatorPosted == false); */
       operatorPosted = true;
       operatorDeposit = operatorDeposit + msg.value;
       operatorMetrics = x;
     }
     if(msg.sender == customer) {
-      /* require(customerPosted == false); */
       customerPosted = true;
       customerDeposit = customerDeposit + msg.value;
       customerMetrics = x;
     }
     if( customerPosted && operatorPosted ) {
-      /* customerPosted = false; */
-      /* operatorPosted = false; */
       if ( customerMetrics == operatorMetrics ) {
 	/* Metrics within tolerance sla applies */
 	if ( customerMetrics < sla ) {
@@ -89,13 +81,6 @@ contract BCSLA {
     operatorPosted = false;
     customerPosted = false;
     emit EndOfRoundEvent(operatorDeposit, customerDeposit);
-  }
-
-  function withdraw() public {
-    /* uint amount = gains; */
-
-    /* gains = 0; */
-    msg.sender.transfer(10);
   }
 
 }

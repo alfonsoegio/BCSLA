@@ -43,6 +43,8 @@ customer and operator get back their respective stakes held by the contract.
 violation has occurred and customer receives back the stake held from
 both: operator and customer.
 
+![picture](diagram.png)
+
 At first sight, may seem a bit drastic to hold customer's cryptos in case
 monitoring metrics differ but it should be added to the model
 in order to ensure customer does not try to fake and lower metric
