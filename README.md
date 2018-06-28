@@ -59,7 +59,7 @@ both: operator and customer.
 At first sight, may seem a bit drastic to hold customer's cryptos in case
 monitoring metrics differ but it should be added to the model
 in order to ensure customer does not try to fake and lower metric
-records in order to commit fraud against the operator.
+to commit fraud against the operator.
 
 Full code of the smart contract here.
 
@@ -68,8 +68,8 @@ Full code of the smart contract here.
 One first simulation to test the contract can be found in the test
 directory of the repository; in particular this code
 simulates 100 random metric records from customer and operator;
-between 20 and and 40, the QoS falls down causing customer compensation;
-after that ... between 60 and 80 iterations the provider's monitor
+between 20th and 40th, the QoS falls down causing customer compensation;
+after that ... between 60th and 80th iterations the provider's monitor
 starts malfunctioning causing the contract to hold all the stake
 from both of them and eventually returning held value to players
 when their metrics converge again just before the simulation finishes.
