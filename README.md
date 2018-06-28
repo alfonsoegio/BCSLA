@@ -13,11 +13,11 @@ truffle compile && truffle migrate --network development && truffle exec test/te
 ## Introduction
 
 Recent publications (see [1] and [2]) analyze the possibility
-of making use of blockchain features to approach SLA contract management.
+of making use of blockchain features to handle SLA contract management.
 
 ## Monitoring agents
 
-[2] exposes some closer approach about how this SLA management workflow
+In particular [2] describes a closer approach about how this SLA management workflow
 can be applied to virtualized network functions and services. Anyway
 the schema relies on a trusted monitoring solution supported by some agents
 lowering a bit the decentralization of the solution.
@@ -31,10 +31,10 @@ pretty simple as depicted in the flow diagram below; operator instantiates the
 contract into Ethereum Distributed Virtual Machine; customer registers
 within the contract instance. From that time, customer and operator
 start posting their metric records (adding some stake to the call, to simplify
-things, 1 ETH per call) with 4 possible outcomes:
+things: 1 ETH per call) with 3 possible outcomes:
 
 1) Records do not match: The smart contract temporary disables the SLA
-and holds the 2 ETH transfered by both: customer & operator:
+and holds the 2 ETH transferred by both: customer & operator:
 
 2) Records match and QoS is above the level stated in the SLA; both
 customer and operator get back their respective stakes held by the contract.
@@ -46,13 +46,45 @@ both: operator and customer.
 At first sight, may seem a bit drastic to hold customer's cryptos in case
 monitoring metrics differ but it should be added to the model
 in order to ensure customer does not try to fake and lower metric
-records in order to commit fraud to the operator.
+records in order to commit fraud against the operator.
 
-Full code of the smart contract here:
+Full code of the smart contract here.
+
+## Initial simulation:
+
+One first simulation to test the contract can be found in the test
+directory of the repository; in particular this code
+simulates 100 random metric records from customer and operator;
+between 20 and and 40, the QoS falls down causing customer compensation;
+after that ... between 60 and 80 iterations the provider's monitor
+starts malfunctioning causing the contract to hold all the stake
+from both of them and eventually returning held value to players
+when their metrics converge again just before the simulation finishes.
+
+
+
+```
+var iterations = 100;
+var metrics = [];
+for(var i=0;i<iterations;i++) {
+    var m1 = randomIntInc(82,98);
+    var m2 = randomIntInc(82,98);
+    if ( i > 20 && i < 40 ) {
+	m1 = m1-20;
+	m2 = m2-20;
+    }
+    if ( i > 60 && i < 80 ) {
+	m2 = m2-20;
+    }
+    metrics.push([m1, m2, 1, 1]);
+}
+```
+
+
 
 ## Possible features to extend the contract
 
-- In order to consider the asimmetry between operator and customer
+- In order to consider the asymmetry between operator and customer
 it maybe nice to have the operator making an initial transfer
 directly proportional to the value of the whole contract duration
 (initial proof of stake)
