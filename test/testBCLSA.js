@@ -9,19 +9,19 @@ var metrics = [];
 for(var i=0;i<iterations;i++) {
     var m1 = randomIntInc(92,98);
     var m2 = randomIntInc(82,98);
-    if ( i > 20 && i < 40 ) {
+    if ( i > 20 && i < 80 ) {
 	m1 = m1-20;
 	m2 = m2-20;
     }
     if ( i > 60 && i < 80 ) {
-	m1 = m1-20;
+	m2 = m2-20;
     }
     metrics.push([m1, m2, 1, 1]);
 }
 var current_metric = 0;
 
 function postMetrics(instance, operator, customer) {
-    if ( current_metric <= 99 ) {
+    if ( current_metric <= 999 ) {
 	var log = current_metric + "\t" + metrics[current_metric][0] + "\t" + metrics[current_metric][1] + "\t";
 	log += web3.eth.getBalance(operator)/1.0e18 + "\t" + web3.eth.getBalance(customer)/1.0e18;
 	console.log(log);
