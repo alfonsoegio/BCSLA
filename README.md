@@ -61,6 +61,8 @@ starts malfunctioning causing the contract to hold all the stake
 from both of them and eventually returning held value to players
 when their metrics converge again just before the simulation finishes.
 
+![picture](plot.png)
+
 
 
 ```
