@@ -1,8 +1,19 @@
 # BCSLA
 
+## Requirements:
+
+- ganache-cli
+- truffle framework
+
+## Usage
+
+### Deploy development network
+
 ```
 ganache-cli -p 7545
 ```
+
+### Compile, migrate and run test simulation
 
 ```
 truffle compile && truffle migrate --network development && truffle exec test/testBCLSA.js
