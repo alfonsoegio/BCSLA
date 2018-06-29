@@ -100,7 +100,7 @@ for(var i=0;i<iterations;i++) {
 ## Possible features to extend the contract
 
 - In order to consider the asymmetry between operator and customer
-it maybe nice to have the operator making an initial transfer
+it may be nice to have the operator making an initial transfer
 directly proportional to the value of the whole contract duration
 (initial proof of stake)
 and keep retrieving it while posting correct metrics above the SLA
@@ -109,7 +109,7 @@ QoS level until the end of the contract.
 - Also consider the possibility to create an SLA management
 smart contract that can operate recurrently over different
 instances to allow some
-SLA chaining between different operators and providers: infrastructure
+SLA chaining between different customers and providers: infrastructure
 providers, service vendors, network operators and end-users.
 
 
