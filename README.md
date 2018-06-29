@@ -28,7 +28,7 @@ of making use of blockchain features to handle SLA contract management.
 
 ## Monitoring agents
 
-In particular [2] describes a closer approach about how this SLA management workflow
+In particular [2] describes a detailed approach about how this SLA management workflow
 can be applied to virtualized network functions and services. Anyway
 the schema relies on a trusted monitoring solution supported by some agents
 lowering a bit the decentralization of the solution.
@@ -40,7 +40,7 @@ point the "wrestling" smart-contract presented in [3] one can end up writing som
 solidity smart-contract called BCSLA (blockchain SLA). The contract itself is
 pretty simple as depicted in the flow diagram below; operator instantiates the
 contract into Ethereum Distributed Virtual Machine; customer registers
-within the contract instance. From that time, customer and operator
+within the contract instance. From that time on, customer and operator
 start posting their metric records (adding some stake to the call, to simplify
 things: 1 ETH per call) with 3 possible outcomes:
 
@@ -57,7 +57,7 @@ both: operator and customer.
 ![picture](diagram.png)
 
 At first sight, may seem a bit drastic to hold customer's cryptos in case
-monitoring metrics differ but it should be added to the model
+monitoring metrics differ but this behavior should be added to the contract
 in order to ensure customer does not try to fake and lower metric
 to commit fraud against the operator.
 
@@ -67,7 +67,7 @@ Full code of the smart contract here.
 
 One first simulation to test the contract can be found in the test
 directory of the repository; in particular this code
-simulates 100 random metric records from customer and operator;
+simulates 100 random metric records for each player;
 between 20th and 40th, the QoS falls down causing customer compensation;
 after that ... between 60th and 80th iterations the provider's monitor
 starts malfunctioning causing the contract to hold all the stake
