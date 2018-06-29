@@ -50,7 +50,7 @@ and holds the 2 ETH transferred by both: customer & operator:
 2) Records match and QoS is above the level stated in the SLA; both
 customer and operator get back their respective stakes held by the contract.
 
-3) Records match and QoS is below the SLA; it turns out that an SLA
+3) Records match and QoS is below the SLA; it turns out that a SLA
 violation has occurred and customer receives back the stake held from
 both: operator and customer.
 
@@ -106,7 +106,7 @@ directly proportional to the value of the whole contract duration
 and keep retrieving it while posting correct metrics above the SLA
 QoS level until the end of the contract.
 
-- Also consider the possibility to create an SLA management
+- Also consider the possibility to create a SLA management
 smart contract that can operate recurrently over different
 instances to allow some
 SLA chaining between different customers and providers: infrastructure
