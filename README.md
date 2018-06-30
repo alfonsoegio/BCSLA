@@ -23,7 +23,7 @@ truffle compile && truffle migrate --network development && truffle exec test/te
 
 ## Introduction
 
-Recent publications (see [1] and [2]) analyze the possibility
+Recent publications (view [1] and [2]) analyze the possibility
 of making use of blockchain features to handle SLA contract management.
 
 ## Monitoring agents
@@ -41,8 +41,8 @@ solidity smart-contract called BCSLA (blockchain SLA). The contract itself is
 pretty simple as depicted in the flow diagram below; operator instantiates the
 contract into Ethereum Distributed Virtual Machine; customer registers
 within the contract instance. From that time on, customer and operator
-start posting their metric records (adding some stake to the call, to simplify
-things: 1 ETH per call) with 3 possible outcomes:
+start posting their metric records (adding some stake to the call, to
+keep things simple: 1 ETH per call) with 3 possible outcomes:
 
 1) Records do not match: The smart contract temporary disables the SLA
 and holds the 2 ETH transferred by both: customer & operator:
